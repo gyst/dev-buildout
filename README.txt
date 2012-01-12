@@ -5,8 +5,9 @@ Get Started Quickly With Karl
 PostgreSQL
 ----------
 
-Karl requires PostgreSQL be installed on your system.  If you are on OSX, this
-is reported to work::
+Karl requires PostgreSQL be installed on your system.
+
+If you are on OSX, this is reported to work::
 
   $ sudo port install postgresql90
   $ sudo port install postgresql90-server
@@ -16,6 +17,23 @@ Link pg_config to a place that is in the path:
   $ sudo ln -s /opt/local/lib/postgresql90/bin/pg_config /usr/local/bin/
 
 Alternately, add /opt/local/lib/postgresql90/bin/ to your path.
+
+If you're on Ubuntu 10.4 Lucid, see lucid.rst for installation instructions.
+
+Relstorage
+----------
+
+As the 'postgres' user, create the user and database for the PostgreSQL/Relstrage based instance of
+Karl::
+
+  $ createuser -P karltest
+    (Enter 'test' for password.  Repeat.  Answer 'n' to next three questions.)
+  $ createdb -O karltest karltest
+
+Later, if you want to blow away the database and start over::
+
+  $ dropdb karltest; createdb -O karltest karltest
+
 
 Buildout
 --------
@@ -39,29 +57,12 @@ Alternatively, you can use Paster::
 
   $ bin/paster serve etc/karlserve.ini
 
-Visit the filesystem ZODB based test instance of Karl at::
-
-  http://localhost:6543/fs
-
-Default login and password are admin/admin.
-
-Relstorage
-----------
-
-Create the user and database for the PostgreSQL/Relstroage based instance of
-Karl::
-
-  $ createuser -P karltest
-    (Enter 'test' for password.  Repeat.  Answer 'n' to next three questions.)
-  $ createdb -O karltest karltest
-
-Visit the Relstorage instance at::
+Visit the Relstorage based test instance at::
 
   http://localhost:6543/pg
 
-Later, if you want to blow away the database and start over::
+Default login and password are admin/admin.
 
-  $ dropdb karltest; createdb -O karltest karltest
 
 Customization Packages
 ----------------------
