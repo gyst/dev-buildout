@@ -8,11 +8,11 @@ Before you begin
 
 As root, Grant sudo permissions to your normal user
 
-# adduser <yourusername> sudo
+    # adduser <yourusername> sudo
 
 As root, Make sure you have a localhost alias
 
-# [ -f /etc/hosts ] || echo '127.0.0.1    localhost' > /etc/hosts
+    # [ -f /etc/hosts ] || echo '127.0.0.1    localhost' > /etc/hosts
 
 
 Predependencies
@@ -28,12 +28,15 @@ Install some packages:
     sudo apt-get update
 
     # required
+
     sudo apt-get install -y python-setuptools gcc libc6-dev python2.6-dev zlib1g-dev libjpeg-dev git-core subversion
 
     # reccommended for binary file indexing
+
     sudo apt-get install -y aspell poppler-utils wv catdoc
 
     # optional personal tools
+
     sudo apt-get install -y jed ssh-client 
 
 Install virtualenv:
@@ -55,6 +58,7 @@ Later, when rebuilding, clean the buildout
 Initialize the buildout
 
     virtualenv --clear -p python2.6 --distribute .
+
     bin/python bootstrap.py
 
 Build using static lxml
@@ -68,19 +72,25 @@ Relstorage
 Install PostgreSQL 9.1:
 
     sudo apt-get install -y python-software-properties
+
     sudo add-apt-repository ppa:pitti/postgresql
+
     sudo apt-get update
+
     sudo apt-get install -y postgresql libpq-dev
+
 
 Switch to the postgres user to perform some database actions:
 
     sudo su - postgres
+
 
 Add a testuser
 
     createuser -P karltest
 
 (Enter 'test' for password.  Repeat.  Answer 'n' to next three questions.)
+
 
 Create a test database
 
@@ -89,6 +99,7 @@ Create a test database
 Later, if you want to blow away the database and start over::
 
     dropdb karltest; createdb -O karltest karltest
+
 
 Finally, log out of the postgres user
 
