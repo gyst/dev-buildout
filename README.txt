@@ -2,6 +2,9 @@
 Get Started Quickly With Karl
 =============================
 
+If you're on Ubuntu 10.4 Lucid, see lucid.rst for installation instructions.
+
+
 PostgreSQL
 ----------
 
@@ -17,8 +20,6 @@ Link pg_config to a place that is in the path:
   $ sudo ln -s /opt/local/lib/postgresql90/bin/pg_config /usr/local/bin/
 
 Alternately, add /opt/local/lib/postgresql90/bin/ to your path.
-
-If you're on Ubuntu 10.4 Lucid, see lucid.rst for installation instructions.
 
 Relstorage
 ----------
